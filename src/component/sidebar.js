@@ -45,7 +45,7 @@ export default function Sidebar(props) {
           <ul id="menu">
             <li id="menu-home"><Link to='../home' style={{textDecoration:'none'}}><i className="fa fa-tachometer" /><span>Dashboard</span></Link>
             </li>
-            <li><a href="#" style={{textDecoration:'none'}}><i class="glyphicon glyphicon-plus" style={{color:'white'}}></i><span>Employee</span><span className="fa fa-angle-right" style={{ float: 'right' }} /></a>
+            <li><a href="#" style={{textDecoration:'none'}}><i className="glyphicon glyphicon-plus" style={{color:'white'}}></i><span>Employee</span><span className="fa fa-angle-right" style={{ float: 'right' }} /></a>
               <ul>
               <li><Link to='../add_employee' style={{textDecoration:'none',pointerEvents: 'none'}} >Add Employee</Link></li>
                 <li><Link to='../employee_list' style={{textDecoration:'none',pointerEvents: 'none'}}>Employee List</Link></li>

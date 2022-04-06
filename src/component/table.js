@@ -1,14 +1,80 @@
-import { Table } from 'react-bootstrap';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Table } from 'react-bootstrap';
+// import { Search } from 'react-bootstrap-table2-toolkit';
+
+
+
+// export default function Table3(props) {
+
+//     const { SearchBar } = Search;
+//     let columns = [];
+//     console.log(props.roww)
+//     props.roww.map(
+//         (newdata, i) => {
+//             console.log("inside roww")
+//             columns[i] = { 'dataField': newdata, 'text': newdata }
+
+//         }
+//     )
+//     console.log(columns)
+//     props.field.map(
+//         (newdata, i) => {
+//             columns[i]['text'] = newdata;
+//         }
+//     )
+//     console.log(columns)
+
+
+//     return (
+//         <>
+
+//             {/* <ToolkitProvider
+//                     keyField="id"
+//                     data={props.value}
+//                     columns={columns}
+//                     search
+//                 >
+//                     {
+//                         props => (
+//                             <div>
+//                                 <h3>Input something at below input field:</h3>
+//                                 <SearchBar {...props.searchProps} />
+//                                 <hr />
+//                                 <BootstrapTable
+//                                     {...props.baseProps}
+//                                     pagination={paginationFactory({ sizePerPage: 10 })}
+//                                 />
+//                             </div>
+//                         )
+//                     }
+//                 </ToolkitProvider> */}
+//             <BootstrapTable
+//                 keyField="id"
+//                 data={props.value}
+//                 columns={columns}
+//                 striped
+//                 hover
+//                 condensed
+//                 pagination={paginationFactory({ sizePerPage: 10 })}
+//             />
+
+//         </>
+//     );
+// }
 export default function Table1(props) {
 
     var len = props.field;
     len = len.length;
-    console.log(len)
+    // console.log(len)
     if (len == 4) {
         return (
             <>
-                <Table striped bordered hover variant="dark">
+                <Table striped bordered hover variant="dark" >
                     <thead>
                         <tr>
                             {

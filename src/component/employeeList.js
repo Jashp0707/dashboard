@@ -75,15 +75,46 @@ function Tab() {
     )
 }
 
-function Employeedata(props) {
-    let image1='data:image/png;base64, ';
-    image1+=props.value.display_pic
+function Employeedata(props) {  
+    console.log(props.value.name[0])
+    let image1 = {
+        'a':  require('../images/a.png'),
+        'b':  require('../images/b.png'),
+        'c':  require('../images/c.png'),
+        'd':  require('../images/d.png'),
+        'e':  require('../images/e.png'),
+        'f':  require('../images/f.png'),
+         'g':  require('../images/g.png'),
+         'h':  require('../images/h.png'),
+         'i':  require('../images/i.png'),
+         'j':  require('../images/j.png'),
+         'k':  require('../images/k.png'),
+         'l':  require('../images/l.png'),
+         'm':  require('../images/m.png'),
+         'n':  require('../images/n.png'),
+         'o':  require('../images/0.png'),
+         'p':  require('../images/p.png'),
+         'q':  require('../images/q.png'),
+         'r':  require('../images/r.png'),
+         's': require('../images/s.png'),
+         't': require('../images/t.png'),
+         'u': require('../images/u.png'),
+         'v': require('../images/v.png'),
+         'w': require('../images/w.png'),
+         'x': require('../images/x.png'),
+         'y': require('../images/y.png'),
+         'z': require('../images/z.png')
+    }
+    let image2=image1[props.value.name[0].toLowerCase()]
+    
+  
+
     return (
         <tr>
             <td className='align-middle'><p className='text-center'>{props.value.detail_id}</p></td>
             <td className='align-middle'><p className='text-center'>{props.value.login_id}</p></td>
             <td className='align-middle'><p className='text-center'>{props.value.name}</p></td>
-            <td className='align-middle'><img className='img-responsive center-block' src={image1} style={{width: '150px', height: '150px', borderRadius: '5%'}}></img></td>
+            <td className='align-middle'><img className='img-responsive center-block' src={image2} style={{width: '150px', height: '150px', borderRadius: '5%'}}></img></td>
             <td className='align-middle'><p className='text-center'>{props.value.address}</p></td>
         </tr>
     )

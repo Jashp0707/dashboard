@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
-import Table1 from "./table";
+
 import {ReactSession} from 'react-client-session'
+import Table3 from "./table";
+// import Table2 from "./table";
 
 export default function Smoke(){
     const [data,setData] = useState([]);
@@ -23,7 +25,12 @@ export default function Smoke(){
         arr.push(val)
         actual.push(i)
     }
+    // console.log(data)
     let x = (typeof ReactSession.get("login_id") === 'undefined') ? 'false' : 'true'
+    // const ClearSession = ()=>{
+    //   localStorage.clear();
+    //   console.log(ReactSession.get("username"))
+    // }
 
     return(
         <>
@@ -32,7 +39,9 @@ export default function Smoke(){
           <div className="mother-grid-inner">
             <Navbar />
             <div className="inner-block">
-              <Table1 value={data} field={arr} roww={actual} />
+              <Table3 value={data} field={arr} roww={actual}/>
+              {/* <Table2 value={data} field={arr} roww={actual} /> */}
+              {/* <button onClick={ClearSession} >Clear</button> */}
               <div className="clearfix"> </div>
             </div>
             {/*climate end here*/}

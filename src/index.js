@@ -15,6 +15,7 @@ import Ul from './component/ultrasonic';
 import EmployeeList from './component/employeeList';
 import AddEmployee from './component/addEmployee';
 import Login from './component/login';
+import Signup from './component/signup';
 
 
 ReactDOM.render(
@@ -34,6 +35,7 @@ ReactDOM.render(
       <Route exact path='add_employee' element={<AddEmployee />}></Route>
       <Route exact path='ultrasonic' element={<Ul />}></Route>
       <Route exact path='login' element={<Login />}></Route>
+      <Route exact path='signup' element={<Signup />}></Route>
       
       
       

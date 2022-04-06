@@ -40,7 +40,7 @@ export default function Login() {
             }
           }
           else {
-
+            document.getElementById("error").innerHTML="Email Id or Password is wrong."
           }
         }
       )
@@ -48,6 +48,7 @@ export default function Login() {
 
 
   }
+  
   return (
     <div className="limiter">
       <div className="container-login100">
@@ -59,6 +60,7 @@ export default function Login() {
             <span className="login100-form-title">
               Member Login
             </span>
+            <p id='error' className="login100-form-title" style={{fontSize:'150%',color:"red"}} ></p>
             <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
               <input className="input100" type="text" name="email" placeholder="Email" value={email} onChange={(a) => setEmail(a.target.value)} />
               <span className="focus-input100" />
@@ -81,12 +83,12 @@ export default function Login() {
               <span className="txt1">
                 Forgot
               </span>
-              <a className="txt2" href="#">
+              <a className="txt2" href="#" >
                 Username / Password?
               </a>
             </div>
             <div className="text-center p-t-136">
-              <a className="txt2" href="#">
+              <a className="txt2" href="signup">
                 Create your Account
                 <i className="fa fa-long-arrow-right m-l-5" aria-hidden="true" />
               </a>

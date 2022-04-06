@@ -42,26 +42,17 @@ function Insert() {
     const [city,setCity] = useState(null);
     const [state,setState] = useState(null);
     const [zip,setZip] = useState(null);
-    const [image,setImage] = useState(null);
+    
     const [dob,setDob] = useState(null);
-    let base64String = ``;
-    function imageUploaded() {
-        var file = document.querySelector(
-            'input[type=file]')['files'][0];
-      
-        var reader = new FileReader();
-        console.log("next");
-          
-        reader.onload = function () {
-            base64String = reader.result.replace("data:", "")
-                .replace(/^.+,/, "");
-      
-            setImage(base64String);
-      
-           
-            console.log(base64String);
-        }
-        reader.readAsDataURL(file);
+    
+     
+    
+   
+    const SubmitData = (args)=>{
+        args.preventDefault();
+        const address1 = `${address}, ${city}, ${state} - ${zip}`;
+        console.log("submit")
+        fetch(`https://internshippro.000webhostapp.com/insertEmployee.php?name=${name}&empId=${empid}&loginId=${loginid}&address=${address1}&dob=${dob}`)
     }
     
 
@@ -108,12 +99,7 @@ function Insert() {
                 </div>
             </div>
             <div className="form-row">
-                <div className="col-md-6 mb-3">
-                    <label htmlFor="validationTooltip05">Profile Pic</label>
-                    <input type="file"
-                        id="avatar" name="avatar"
-                        accept="image/png, image/jpeg, image/jpg" className="form-control"  placeholder="Image" required  onChange={imageUploaded} />
-                </div>
+                
                 <div className="col-md-6 mb-3">
                     <label htmlFor="validationTooltip05">DOB</label>
                     <input type="date"
@@ -121,7 +107,8 @@ function Insert() {
                 </div>
             </div>
             <div className="text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input type='submit' class="btn btn-primary" onClick={SubmitData}></input>
+            
             </div>
         </form>
     )
