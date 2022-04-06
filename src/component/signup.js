@@ -9,10 +9,11 @@ import '../css/util.css';
 import '../css/main.css';
 import { useEffect, useState } from 'react';
 import { ReactSession } from 'react-client-session';
-import { BrowserRouter, Switch, Route, Redirect, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect, useNavigate, Navigate } from 'react-router-dom'
 import SendEmail from './send';
 import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
+
 
 
 
@@ -25,6 +26,7 @@ export default function Signup() {
     const [data, setData] = useState([]);
     const otp1 = Math.floor(100000 + Math.random() * 900000)
     let otp2=0;
+    const navigate = useNavigate();
     
     
     
@@ -35,7 +37,7 @@ export default function Signup() {
 
 
             fetch(`https://internshippro.000webhostapp.com/addCustomer.php?email=${email}&password=${password1}&phone=${contact}`);
-            <Redirect to='login'></Redirect>
+            return navigate("../login");
         }
 
 
@@ -97,7 +99,7 @@ export default function Signup() {
                     <div className="login100-pic js-tilt" data-tilt >
                         <img className='zoom' src={a} alt="IMG" />
                     </div>
-                    <form className="login100-form validate-form" ref={form}>
+                    <form className="login100-form validate-form">
                         <span className="login100-form-title">
                             Member SignUp
                         </span>
