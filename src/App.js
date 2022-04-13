@@ -7,11 +7,12 @@ import './css/examples.css'
 import './css/font-awesome.css'
 import './css/hover.css'
 import Sidebar from './component/sidebar';
-import Footer from './component/footer';
+// import Footer from './component/footer';
 import Card from './component/cards';
 import Login from './component/login';
 import React from 'react';
 import { ReactSession } from 'react-client-session'
+import { Offline, Online } from "react-detect-offline";
 
 
 function App() {
@@ -23,7 +24,8 @@ export function Home() {
 
   return (
     <>
-      <div className='page-container'>
+    <Online>
+    <div className='page-container'>
         <div className="left-content">
           <div className="mother-grid-inner">
             <Navbar />
@@ -38,13 +40,17 @@ export function Home() {
               {/*main page chart layer2*/}
               <div className="clearfix"> </div>
             </div>
-            {/*climate end here*/}
-            <Footer />
+            
           </div>
         </div>
 
       </div>
       <Sidebar field={x} />
+    </Online>
+    <Offline>
+    You're offline right now. Check your connection.
+    </Offline>
+      
 
     </>
   )

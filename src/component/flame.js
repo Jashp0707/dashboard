@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Footer from "./footer";
+// import Footer from "./footer";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import Table1 from "./table";
 import {ReactSession} from 'react-client-session'
+import { Offline, Online } from "react-detect-offline";
 
 export default function Flame(){
     const [data,setData] = useState([]);
@@ -29,7 +30,8 @@ export default function Flame(){
     let x = (typeof ReactSession.get("login_id") === 'undefined') ? 'false' : 'true'
     return(
         <>
-      <div className='page-container'>
+     <Online>
+        <div className='page-container'>
         <div className="left-content">
           <div className="mother-grid-inner">
             <Navbar />
@@ -37,13 +39,15 @@ export default function Flame(){
               <Table1 value={data} field={arr} roww={actual} />
               <div className="clearfix"> </div>
             </div>
-            {/*climate end here*/}
-            <Footer />
+            
           </div>
         </div>
 
       </div>
-      <Sidebar field={x}  />
+      <Sidebar field={x} />
+        </Online>
+        <Offline>You're offline right now. Check your connection.</Offline>
+      
 
     </>
     )

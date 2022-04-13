@@ -9,7 +9,7 @@ import { Container, Table } from 'react-bootstrap';
 
 
 
-// export default function Table3(props) {
+// export default function Pagination1(props) {
 
 //     const { SearchBar } = Search;
 //     let columns = [];
@@ -33,7 +33,9 @@ import { Container, Table } from 'react-bootstrap';
 //     return (
 //         <>
 
-//             {/* <ToolkitProvider
+//             <Container>
+//                 <h3>Table</h3>
+//                 <ToolkitProvider
 //                     keyField="id"
 //                     data={props.value}
 //                     columns={columns}
@@ -52,16 +54,9 @@ import { Container, Table } from 'react-bootstrap';
 //                             </div>
 //                         )
 //                     }
-//                 </ToolkitProvider> */}
-//             <BootstrapTable
-//                 keyField="id"
-//                 data={props.value}
-//                 columns={columns}
-//                 striped
-//                 hover
-//                 condensed
-//                 pagination={paginationFactory({ sizePerPage: 10 })}
-//             />
+//                 </ToolkitProvider>
+//             </Container>
+            
 
 //         </>
 //     );

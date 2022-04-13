@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import Footer from "./footer";
+// import Footer from "./footer";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 
 import {ReactSession} from 'react-client-session'
-import Table3 from "./table";
+import Table1 from "./table";
+import { Offline, Online } from "react-detect-offline";
 // import Table2 from "./table";
 
 export default function Smoke(){
@@ -19,7 +20,7 @@ export default function Smoke(){
             .then(json=>setData(json.smoke))
             .catch(setError)
         }
-    ,data)
+    ,[])
     for (let i in data[0]){
         var val=i.replace("_"," ")
         arr.push(val)
@@ -31,26 +32,30 @@ export default function Smoke(){
     //   localStorage.clear();
     //   console.log(ReactSession.get("username"))
     // }
+    console.log("data :"+data)
+    console.log("actual :"+actual)
+    console.log("arr :"+arr)
 
     return(
         <>
-      <div className='page-container'>
+      <Online>
+        <div className='page-container'>
         <div className="left-content">
           <div className="mother-grid-inner">
             <Navbar />
             <div className="inner-block">
-              <Table3 value={data} field={arr} roww={actual}/>
-              {/* <Table2 value={data} field={arr} roww={actual} /> */}
-              {/* <button onClick={ClearSession} >Clear</button> */}
+              <Table1 value={data} field={arr} roww={actual} />
               <div className="clearfix"> </div>
             </div>
-            {/*climate end here*/}
-            <Footer />
+            
           </div>
         </div>
 
       </div>
       <Sidebar field={x} />
+        </Online>
+        <Offline>You're offline right now. Check your connection.</Offline>
+      
 
     </>
     )

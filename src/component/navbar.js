@@ -89,7 +89,8 @@ export default function Navbar() {
             <ul>
               <li className="dropdown profile_details_drop">
                 
-                <button><Link to='../login' style={{textDecoration:'none'}}>Login</Link></button>
+                <button><Link to='../login' style={{textDecoration:'none', marginRight:'10px'}}>Login</Link></button>
+                <button><Link to='../signup' style={{textDecoration:'none'}}>SignUp</Link></button>
   
               </li>
             </ul>
@@ -121,7 +122,7 @@ export default function Navbar() {
                   <NavDropdown title="" id="basic-nav-dropdown" className='float-right'>'
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Change Profile Details</NavDropdown.Item>
+                    <NavDropdown.Item href="#"><Link to='../add_employee' style={{textDecoration:'none'}}>Change Profile Details</Link></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={ClearSession}>Log Out</NavDropdown.Item>
                   </NavDropdown>

@@ -16,6 +16,14 @@ import EmployeeList from './component/employeeList';
 import AddEmployee from './component/addEmployee';
 import Login from './component/login';
 import Signup from './component/signup';
+import Location from './component/employee_location';
+import Search1 from './component/cafeteria';
+import Library from './component/library';
+import Meeting from './component/meetingroom';
+import VideoConference from './component/videoconferenceroom';
+import Out from './component/outofoffice';
+import Workspace from './component/workspace';
+import Employee from './component/employeewise';
 
 
 ReactDOM.render(
@@ -36,6 +44,14 @@ ReactDOM.render(
       <Route exact path='ultrasonic' element={<Ul />}></Route>
       <Route exact path='login' element={<Login />}></Route>
       <Route exact path='signup' element={<Signup />}></Route>
+      <Route exact path='location_areawise' element={<Location />}></Route>
+      <Route exact path='location_employee' element={<Employee />}></Route>
+      <Route exact path='cafeteria' element={<Search1 />}></Route>
+      <Route exact path='library' element={<Library />}></Route>
+      <Route exact path='meetingRoom' element={<Meeting />}></Route>
+      <Route exact path='videoConference' element={<VideoConference />}></Route>
+      <Route exact path='outOfOffice' element={<Out />}></Route>
+      <Route exact path='workSpace' element={<Workspace />}></Route>
       
       
       

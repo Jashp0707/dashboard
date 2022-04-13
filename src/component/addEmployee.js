@@ -1,14 +1,18 @@
-import Footer from "./footer";
+// import Footer from "./footer";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
+import { Offline, Online } from "react-detect-offline";
+import {ReactSession} from 'react-client-session'
+import { useNavigate } from "react-router-dom";
+
 
 export default function AddEmployee() {
+    let x = (typeof ReactSession.get("login_id") === 'undefined') ? 'false' : 'true'
     return (
         <>
-
-            <div className='page-container'>
+            <Online ><div className='page-container'>
                 <div className="left-content">
                     <div className="mother-grid-inner">
                         <Navbar />
@@ -22,13 +26,15 @@ export default function AddEmployee() {
                             {/*main page chart layer2*/}
                             <div className="clearfix"> </div>
                         </div>
-                        {/*climate end here*/}
-                        <Footer />
+                        
                     </div>
                 </div>
 
             </div>
-            <Sidebar field='true' />
+            <Sidebar field={x}/>
+            </Online>
+            <Offline>You're offline right now. Check your connection.</Offline>
+            
 
         </>
     )
@@ -37,23 +43,28 @@ export default function AddEmployee() {
 function Insert() {
     const [name,setName] = useState(null);
     const [empid,setEmpid] = useState(null);
-    const [loginid,setLoginid] = useState(null);
+    const [data,setData] = useState([]);
+    // const [loginid,setLoginid] = useState(null);
     const [address,setAddress] = useState(``);
     const [city,setCity] = useState(null);
     const [state,setState] = useState(null);
     const [zip,setZip] = useState(null);
-    
+    const navigate = useNavigate();
     const [dob,setDob] = useState(null);
     
+
+     const loginid=ReactSession.get("login_id");
      
-    
    
     const SubmitData = (args)=>{
         args.preventDefault();
-        const address1 = `${address}, ${city}, ${state} - ${zip}`;
+        
         console.log("submit")
-        fetch(`https://internshippro.000webhostapp.com/insertEmployee.php?name=${name}&empId=${empid}&loginId=${loginid}&address=${address1}&dob=${dob}`)
+        fetch(`https://internshippro.000webhostapp.com/insertEmployee.php?name=${name}&loginId=${loginid}&address=${address}&dob=${dob}&city=${city}&state=${state}&zip=${zip}`)
+        .then(alert("Your data has been change successfully."))
+        .then(navigate('../home'))
     }
+    
     
 
 
@@ -62,37 +73,30 @@ function Insert() {
             <div className="form-row">
                 <div className="col-md-4 mb-3">
                     <label htmlFor="validationTooltip01">Full name</label>
-                    <input type="text" className="form-control" id="validationTooltip01" placeholder="First name" required value={name} onChange={(a) => setName(a.target.value)} />
+                    <input type="text" className="form-control" id="validationTooltip01" placeholder='Full Name' required value={name} onChange={(a) => setName(a.target.value)} />
 
                 </div>
-                <div className="col-md-4 mb-3">
-                    <label htmlFor="validationTooltip02">Emplyee Id</label>
-                    <input type="number" className="form-control"  placeholder="Employee Id " required value={empid} onChange={(a) => setEmpid(a.target.value)} />
-
-                </div>
-                <div className="col-md-4 mb-3">
-                    <label htmlFor="validationTooltip02">Login Id</label>
-                    <input type="number" className="form-control" id="validationTooltip02" placeholder="Login Id " required value={loginid} onChange={(a) => setLoginid(a.target.value)} />
-
-                </div>
-
-            </div>
-            <div className="form-row">
-                <div className="col-md-4 mb-3">
+                <div className="col-md-8 mb-3">
                     <label htmlFor="validationTooltip03">Address</label>
                     <input type="text" className="form-control"  placeholder="Address" required value={address} onChange={(a) => setAddress(a.target.value)} />
                 </div>
+                
+                
+
+            </div>
+            <div className="form-row">
+                
                 <div className="col-md-4 mb-3">
                     <label htmlFor="validationTooltip03">City</label>
                     <input type="text" className="form-control" id="validationTooltip03" placeholder="City" required value={city} onChange={(a) => setCity(a.target.value)}/>
 
                 </div>
-                <div className="col-md-2 mb-3">
+                <div className="col-md-4 mb-3">
                     <label htmlFor="validationTooltip04">State</label>
                     <input type="text" className="form-control" id="validationTooltip04" placeholder="State" required value={state} onChange={(a) => setState(a.target.value)}/>
 
                 </div>
-                <div className="col-md-2 mb-3">
+                <div className="col-md-4 mb-3">
                     <label htmlFor="validationTooltip05">Zip</label>
                     <input type="text" className="form-control"  placeholder="Zip" required value={zip} onChange={(a) => setZip(a.target.value)} />
 

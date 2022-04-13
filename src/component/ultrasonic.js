@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import Footer from "./footer";
+// import Footer from "./footer";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
-import Table1 from "./table";
+// import Table1 from "./table";
 import {ReactSession} from 'react-client-session'
+import Table1 from "./table";
+import { Offline, Online } from "react-detect-offline";
 
 export default function Ul(){
     const [data,setData] = useState([]);
@@ -27,7 +29,8 @@ export default function Ul(){
 
     return(
         <>
-      <div className='page-container'>
+        <Online>
+        <div className='page-container'>
         <div className="left-content">
           <div className="mother-grid-inner">
             <Navbar />
@@ -35,13 +38,15 @@ export default function Ul(){
               <Table1 value={data} field={arr} roww={actual} />
               <div className="clearfix"> </div>
             </div>
-            {/*climate end here*/}
-            <Footer />
+            
           </div>
         </div>
 
       </div>
       <Sidebar field={x} />
+        </Online>
+        <Offline>You're offline right now. Check your connection.</Offline>
+      
 
     </>
     )
