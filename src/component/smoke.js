@@ -20,7 +20,7 @@ export default function Smoke(){
             .then(json=>setData(json.smoke))
             .catch(setError)
         }
-    ,[])
+    ,data)
     for (let i in data[0]){
         var val=i.replace("_"," ")
         arr.push(val)

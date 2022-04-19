@@ -101,8 +101,9 @@ export default function Library() {
                         </div>
 
                     </div>
-                    <Sidebar field='true' />
+                    
                     </div>
+                    <Sidebar field='true' />
             </Online>
             <Offline>
                 You're offline right now. Check your connection.
