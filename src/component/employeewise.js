@@ -19,7 +19,7 @@ export default function EmployeeWise() {
     const columns = [{
         dataField: 'login_id',
         text: 'Employee Id',
-        // filter: textFilter()
+        filter: textFilter()
     }, {
         dataField: 'rfid_id',
         text: 'RFID'
@@ -32,7 +32,7 @@ export default function EmployeeWise() {
     }, {
         dataField: 'name',
         text: 'Employee Name',
-        // filter: textFilter()
+        filter: textFilter()
     }];
     const d1 = [];
     // const { SearchBar } = Search;

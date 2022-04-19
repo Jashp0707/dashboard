@@ -73,7 +73,7 @@ function Tiles() {
 function Insert(props) {
    
     return (
-        <Card style={{marginBottom:'10px'}} >
+        <Card className='cards1' style={{margin:'20px'}} >
             <Card.Img variant="top" src={props.image2} style={{width:'100%',height:'200px'}} />
             
             <Card.Body className="text-center">

@@ -100,7 +100,7 @@ export default function Signup() {
                 if (newdata.email_id === email && newdata.password === password1) {
                     console.log("inside");
                     fetch(`https://internshippro.000webhostapp.com/insertEmployee.php?name=${name}&loginId=${newdata.Login_id}&address=${address}&dob=${dob}&city=${city}&state=${state}&zip=${zip}`)
-
+                        .then(console.log("inserted data"))
                         .then(navigate("../login"))
 
                 }
