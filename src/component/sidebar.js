@@ -64,7 +64,7 @@ export default function Sidebar(props) {
             </li>
             <li id="menu-comunicacao"><a href="#" style={{ textDecoration: 'none' }}><i className="fa fa-book nav_icon" /><span>Element</span><span className="fa fa-angle-right" style={{ float: 'right' }} /></a>
               <ul id="menu-comunicacao-sub">
-                <li id="menu-mensagens" style={{ width: '200px' }}><Link to='../smoke' style={{ textDecoration: 'none' }}>Smoke Sensor</Link>
+                <li id="menu-mensagens" style={{ width: '200px' }} ><Link to='../smoke' style={{ textDecoration: 'none' }}>Smoke Sensor</Link>
                 </li>
                 <li id="menu-mensagens" style={{ width: '200px' }}><Link to='../flame' style={{ textDecoration: 'none' }}>Flame Sensor</Link>
                 </li><li id="menu-mensagens" style={{ width: '200px' }}><Link to='../ir' style={{ textDecoration: 'none' }}>IR Sensor</Link>

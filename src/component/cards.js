@@ -7,7 +7,7 @@ export default function Card() {
         { "name": "IR Sensor", "url": "https://internshippro.000webhostapp.com/ir.php", "value": 300 },
         { "name": "Flame Sensor", "url": "https://internshippro.000webhostapp.com/flamesensor.php", "value": 300 },
         { "name": "LDR Sensor", "url": "https://internshippro.000webhostapp.com/ldr.php", "value": 300 },
-        { "name": "Soil-Moisture Sensor", "url": "https://internshippro.000webhostapp.com/soilmoisture.php", "value": 300 },
+        { "name": "Soil-Moisture Sensor", "url": "https://internshippro.000webhostapp.com/soilmoisture.php", "value": 30 },
         { "name": "Temperature Sensor", "url": "https://internshippro.000webhostapp.com/temperature.php", "value": 300 },
         { "name": "Ultrasonic Sensor", "url": "https://internshippro.000webhostapp.com/ultrasonic.php", "value": 300 },
         { "name": "Humidity Sensor", "url": "https://internshippro.000webhostapp.com/temperature.php", "value": 300 }

@@ -77,10 +77,7 @@ export default function Login() {
                 console.log(error.text);
                 document.getElementById("msg").innerHTML = "Please try after sometime"
               });
-          }
-          else{
-            document.getElementById("error").innerHTML = "Please enter valid email id."
-          }
+          } 
         }
       )
 
